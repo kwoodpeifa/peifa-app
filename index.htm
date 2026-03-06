@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Payments Program | PEI Federation of Agriculture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --pei-red: #8B3E2F;
+            --pei-green: #6DA04B;
+            --pei-blue: #2C5E7A;
+            --pei-sand: #FBF9F6;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--pei-sand);
+            color: #1a1a1a;
+        }
+        .bg-pei-red { background-color: var(--pei-red); }
+        .text-pei-red { color: var(--pei-red); }
+        .bg-pei-green { background-color: var(--pei-green); }
+        .text-pei-green { color: var(--pei-green); }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('farmfield.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: var(--pei-red);
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--pei-red); }
+        
+        .page-content { display: none; }
+        .page-content.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Logo normalization styles */
+        .footer-logo-box {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #f0f0f0;
+        }
+        .footer-logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Branding Refinement */
+        .program-title-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .program-title-main {
+            color: var(--pei-red);
+            font-weight: 800;
+            font-size: 0.95rem;
+            line-height: 1;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+        .program-title-sub {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 py-4 px-6 md:px-12 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <a href="#" onclick="showPage('home')" class="flex items-center space-x-4 group">
+                    <img src="peifa-logo.png" alt="PEIFA" class="h-10 md:h-12 transition-opacity group-hover:opacity-80">
+                    <div class="h-8 w-px bg-gray-200 hidden sm:block"></div>
+                    <div class="hidden md:flex program-title-container">
+                        <span class="program-title-main">Advance Payment Program</span>
+                        <span class="program-title-sub">Prince Edward Island</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#" onclick="showPage('home')" class="nav-link">Home</a>
+                <a href="#" onclick="showPage('commodities')" class="nav-link">Commodities & Livestock</a>
+                <a href="#" onclick="showPage('eligibility')" class="nav-link">Eligibility & Fees</a>
+                <a href="#" onclick="showPage('contact')" class="bg-pei-red text-white px-6 py-2 rounded-lg font-bold hover:bg-opacity-90 transition-all shadow-md">Connect with our Team</a>
+            </div>
+
+            <button class="lg:hidden text-2xl" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page-content active">
+        <header class="hero-section text-white py-32 md:py-48 px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight drop-shadow-lg">Financial Support for <br>Island Farmers.</h1>
+                <p class="text-xl md:text-2xl mb-12 opacity-90 max-w-2xl mx-auto leading-relaxed">
+                    Access up to $1,000,000 in low-cost operating capital through the Advance Payments Program.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <button onclick="showPage('commodities')" class="bg-white text-gray-900 px-10 py-4 rounded-xl font-bold hover:shadow-2xl transition-all">Explore the Program</button>
+                    <button onclick="showPage('contact')" class="bg-pei-red text-white px-10 py-4 rounded-xl font-bold hover:shadow-2xl transition-all">Get in Touch</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-pei-green/10 text-pei-green rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-percent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Interest-Free</h3>
+                    <p class="text-gray-600">The first $250,000 of your advance is interest-free, funded by the federal government.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-pei-blue/10 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Interest-Advantaged</h3>
+                    <p class="text-gray-600">Amounts above $250,000 are provided at Prime - 0.75%, negotiated specifically for PEI producers.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-pei-red/10 text-pei-red rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Local Guidance</h3>
+                    <p class="text-gray-600">PEIFA handles the paperwork, inspections, and liaison with financial institutions for you.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- COMMODITIES & LIVESTOCK PAGE -->
+    <div id="commodities" class="page-content">
+        <section class="py-16 bg-white border-b">
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-black mb-4">Eligible Commodities</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">The APP covers a wide array of Island-grown products to help manage cash flow across long production cycles.</p>
+            </div>
+        </section>
+
+        <section class="py-20 px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <span class="w-8 h-8 bg-pei-green text-white rounded-lg flex items-center justify-center text-sm">1</span>
+                        Crops & Storable Goods
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100 font-bold">Potatoes</div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100 font-bold">Grains & Cereals</div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100 font-bold">Fruits & Berries</div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100 font-bold">Turf Grass</div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100 font-bold">Root Vegetables</div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100 font-bold">Pulses & Oilseeds</div>
+                    </div>
+                    <p class="mt-8 text-gray-600 italic">Advances are established based on anticipated yields and storage capacity.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <span class="w-8 h-8 bg-pei-red text-white rounded-lg flex items-center justify-center text-sm">2</span>
+                        Livestock Advance Streams
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-gray-900 text-white rounded-2xl">
+                            <h4 class="font-bold text-pei-green mb-2">Standard Flow (Beef Cattle)</h4>
+                            <p class="text-sm opacity-80 mb-4">Up to 24-month repayment schedule. Best for long-term breeding and marketing cycles.</p>
+                            <ul class="text-xs space-y-1 opacity-70">
+                                <li>• Repayments made on an ongoing basis</li>
+                                <li>• 100% ownership required</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 bg-gray-100 rounded-2xl border border-gray-200">
+                            <h4 class="font-bold text-blue-800 mb-2">Continuous Flow (Hogs & Lambs)</h4>
+                            <p class="text-sm text-gray-600 mb-4">Up to 16-month repayment schedule. Designed for high-turnover inventory operations.</p>
+                            <ul class="text-xs space-y-1 text-gray-500">
+                                <li>• Sales invoices required upon repayment</li>
+                                <li>• Repayments due at end of advance year</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ELIGIBILITY & FEES PAGE -->
+    <div id="eligibility" class="page-content">
+        <section class="py-20 px-6 max-w-5xl mx-auto">
+            <h2 class="text-4xl font-black mb-12 text-center">Requirements & Costs</h2>
+            
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 mb-16">
+                <div class="p-8 md:p-12">
+                    <h3 class="text-xl font-bold mb-8 text-pei-red">Application Checklist</h3>
+                    <ul class="grid md:grid-cols-2 gap-8">
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-check-circle text-pei-green text-xl"></i>
+                            <div>
+                                <p class="font-bold">BRM Security</p>
+                                <p class="text-sm text-gray-500">Advance must be secured by AgriInsurance or AgriStability.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-check-circle text-pei-green text-xl"></i>
+                            <div>
+                                <p class="font-bold">Business Status</p>
+                                <p class="text-sm text-gray-500">Open to individuals, partnerships, or corporations.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-check-circle text-pei-green text-xl"></i>
+                            <div>
+                                <p class="font-bold">Citizenship</p>
+                                <p class="text-sm text-gray-500">Must be a Canadian citizen or Permanent Resident.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <i class="fa-solid fa-check-circle text-pei-green text-xl"></i>
+                            <div>
+                                <p class="font-bold">Ownership</p>
+                                <p class="text-sm text-gray-500">Producer must have 100% ownership of the commodity.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 p-8 md:p-12 border-t">
+                    <h3 class="text-xl font-bold mb-8">Admin Fees (Per Advance)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm">
+                            <thead>
+                                <tr class="text-gray-400 font-bold border-b">
+                                    <th class="pb-4">Advance Range</th>
+                                    <th class="pb-4">PEIFA Member</th>
+                                    <th class="pb-4">Non-Member</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-4">Up to $50k</td>
+                                    <td class="py-4 font-bold">$550</td>
+                                    <td class="py-4">$700</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">$250k – $400k</td>
+                                    <td class="py-4 font-bold text-pei-green">$1,250</td>
+                                    <td class="py-4">$1,500</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4">$400k – $1M</td>
+                                    <td class="py-4 font-bold text-pei-green">$1,750</td>
+                                    <td class="py-4">$2,250</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-6 text-xs text-gray-400 italic text-center">Note: Administrative and security fees typically range from $675 - $1,875 (plus 14% HST).</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page-content">
+        <section class="py-24 px-6 md:px-12 bg-pei-red text-white">
+            <div class="max-w-7xl mx-auto text-center mb-16">
+                <h2 class="text-5xl font-black mb-6">Let's Get Started</h2>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">The application process is simple when you have the right support. Reach out to Andrew or Paul to begin your filing or ask questions.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="bg-white text-gray-900 p-8 rounded-3xl shadow-2xl transform hover:-translate-y-2 transition-all border-b-8 border-pei-green">
+                    <div class="w-16 h-16 bg-pei-green/10 text-pei-green rounded-full flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">Andrew Wood</h3>
+                    <p class="text-pei-red font-bold text-sm mb-6 tracking-widest uppercase">Program Officer</p>
+                    <div class="space-y-4 font-medium">
+                        <a href="mailto:awood@peifa.ca" class="flex items-center gap-3 text-gray-600 hover:text-pei-red transition-colors">
+                            <i class="fa-solid fa-envelope"></i> awood@peifa.ca
+                        </a>
+                        <p class="flex items-center gap-3 text-gray-600">
+                            <i class="fa-solid fa-phone"></i> 902-368-7289
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white text-gray-900 p-8 rounded-3xl shadow-2xl transform hover:-translate-y-2 transition-all border-b-8 border-pei-green">
+                    <div class="w-16 h-16 bg-pei-green/10 text-pei-green rounded-full flex items-center justify-center mb-6 text-3xl">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-black mb-1">Paul King</h3>
+                    <p class="text-pei-red font-bold text-sm mb-6 tracking-widest uppercase">Program Officer</p>
+                    <div class="space-y-4 font-medium">
+                        <a href="mailto:paulking@peifa.ca" class="flex items-center gap-3 text-gray-600 hover:text-pei-red transition-colors">
+                            <i class="fa-solid fa-envelope"></i> paulking@peifa.ca
+                        </a>
+                        <p class="flex items-center gap-3 text-gray-600">
+                            <i class="fa-solid fa-phone"></i> 902-368-7289
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 max-w-4xl mx-auto p-12 rounded-[3rem] bg-black/20 backdrop-blur-md border border-white/10 text-center">
+                <h3 class="text-2xl font-bold mb-6">Main Office Location</h3>
+                <p class="text-lg opacity-80 mb-2">420 University Avenue, Suite 203</p>
+                <p class="text-lg opacity-80 mb-8">Charlottetown, PE C1A 7Z5</p>
+                <div class="flex flex-wrap justify-center gap-8 opacity-70 text-sm font-bold tracking-widest uppercase">
+                    <span>Mon - Fri</span>
+                    <span>8:30 AM – 4:30 PM AST</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="bg-white py-16 px-6 border-t">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="flex flex-wrap justify-center items-center gap-6 mb-10">
+                <div class="footer-logo-box">
+                    <img src="peifa-logo.png" alt="PEIFA Logo" class="footer-logo-img">
+                </div>
+                <div class="footer-logo-box">
+                    <img src="AAFC-logo.webp" alt="AAFC Logo" class="footer-logo-img">
+                </div>
+            </div>
+            <p class="text-[11px] text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                The Advance Payments Program is a federal loan guarantee program administered by the Prince Edward Island Federation of Agriculture in cooperation with Agriculture and Agri-Food Canada under the Agricultural Marketing Programs Act (AMPA). Trilateral agreement includes AAFC, PEIFA, and RBC Royal Bank.
+            </p>
+            <p class="mt-6 text-xs font-bold text-gray-300 uppercase tracking-widest">© 2026 PEIFA</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.lg\\:flex');
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex-col');
+            nav.classList.toggle('absolute');
+            nav.classList.toggle('top-16');
+            nav.classList.toggle('left-0');
+            nav.classList.toggle('right-0');
+            nav.classList.toggle('bg-white');
+            nav.classList.toggle('p-6');
+            nav.classList.toggle('shadow-xl');
+        }
+    </script>
+
+</body>
+</html>
